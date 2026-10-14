@@ -1,0 +1,125 @@
+# Default data sources for OpenPath.
+#
+# Every entry becomes a `sources` row on first run (idempotent: existing keys
+# are left untouched, so your edits in the UI win).
+#
+# Collection rules:
+#   * Use only endpoints that are published for public/structured consumption.
+#   * Never bypass login walls, CAPTCHAs, or anti-bot protections
+#     (e.g. HigherEdJobs.com, scholarshipdb.net, phdportal.com,
+#     findaphd.com were evaluated and are deliberately NOT automated).
+#   * Official/official-looking pages get a `manual` source instead.
+#
+# connector_type: rss | ashby | arbeitnow | remotive | manual
+
+sources:
+  - key: ashby-etched
+    name: Etched (Ashby job board)
+    category: industry_jobs
+    connector_type: ashby
+    endpoint_url: https://api.ashbyhq.com/posting-api/job-board/etched?includeCompensation=true
+    description: >
+      Public Ashby job-board API for Etched, a chip company building
+      transformer ASICs. Yields ASIC design/verification roles directly
+      relevant to the seeded hardware profile.
+    license_notes: Public job-board JSON API, read-only, linked back to the original posting.
+    enabled: true
+    fetch_interval_seconds: 21600
+    rate_limit_seconds: 3.0
+    options:
+      organization: Etched
+      field: ASIC Design
+
+  - key: ashby-matx
+    name: MatX (Ashby job board)
+    category: industry_jobs
+    connector_type: ashby
+    endpoint_url: https://api.ashbyhq.com/posting-api/job-board/matx
+    description: >
+      Public Ashby job-board API for MatX, an AI-accelerator hardware
+      company (architecture, RTL, and performance-modeling roles).
+    license_notes: Public job-board JSON API, read-only, linked back to the original posting.
+    enabled: true
+    fetch_interval_seconds: 21600
+    rate_limit_seconds: 3.0
+    options:
+      organization: MatX
+      field: Computer Architecture
+
+  - key: arbeitnow-jobs
+    name: Arbeitnow job board API
+    category: industry_jobs
+    connector_type: arbeitnow
+    endpoint_url: https://www.arbeitnow.com/api/job-board-api
+    description: >
+      Public JSON job-board API covering European employers. Broad feed;
+      relevance filtering happens through profile scoring.
+    license_notes: Public JSON API published for third-party use, read-only, links preserved.
+    enabled: true
+    fetch_interval_seconds: 21600
+    rate_limit_seconds: 3.0
+
+  - key: scholars4dev
+    name: Scholarships for Development (RSS)
+    category: scholarship_db
+    connector_type: rss
+    endpoint_url: https://www.scholars4dev.com/feed/
+    description: >
+      RSS feed of international undergraduate, master's and PhD
+      scholarships for developing-country students.
+    license_notes: Atom/RSS feed published for syndication; item links are kept and shown.
+    enabled: true
+    fetch_interval_seconds: 43200
+    rate_limit_seconds: 3.0
+    options:
+      default_type: scholarship
+
+  - key: opportunitiescorners
+    name: Opportunities Corners (RSS)
+    category: scholarship_db
+    connector_type: rss
+    endpoint_url: https://opportunitiescorners.com/feed/
+    description: RSS feed aggregating international scholarships and funded programs.
+    license_notes: Atom/RSS feed published for syndication; item links are kept and shown.
+    enabled: true
+    fetch_interval_seconds: 43200
+    rate_limit_seconds: 3.0
+    options:
+      default_type: scholarship
+
+  - key: remotive-remote-jobs
+    name: Remotive remote jobs API
+    category: industry_jobs
+    connector_type: remotive
+    endpoint_url: https://remotive.com/api/remote-jobs
+    description: >
+      Public JSON API for remote jobs. Disabled by default because
+      Remotive's terms restrict redistribution; enable for personal use
+      only — OpenPath always links back to the original posting.
+    license_notes: >
+      Remotive permits API use for sharing their jobs with a link back and
+      forbids republishing to third-party job sites. Personal, local use
+      with the original link displayed complies with that.
+    enabled: false
+    fetch_interval_seconds: 43200
+    rate_limit_seconds: 5.0
+    options:
+      params:
+        limit: "50"
+
+  - key: manual-curated
+    name: Manually curated opportunities
+    category: manual
+    connector_type: manual
+    endpoint_url: null
+    description: >
+      Human-curated opportunities (official university funding pages,
+      scholarship portals that forbid automated collection, program pages).
+      Edit config/manual_import.sample.json — every field is explicit; the
+      importer never invents funding, deadlines, or eligibility.
+    license_notes: Curated by the user from official pages; official URLs preserved.
+    enabled: true
+    fetch_interval_seconds: 86400
+    rate_limit_seconds: 0.0
+    options:
+      file: config/manual_import.sample.json

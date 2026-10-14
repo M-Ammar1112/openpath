@@ -1,0 +1,110 @@
+# Seed taxonomy for the default electrical/computer-engineering profile.
+# This file is DATA, not code: replace/extend it (or add sibling files) to
+# target a completely different field (AI, medicine, physics, …).
+
+name: ece_semiconductor
+description: RTL / verification / ASIC / FPGA / hardware-modeling interests
+
+fields:
+  - Digital Design
+  - Digital IC Design
+  - ASIC Design
+  - FPGA Design
+  - SoC Design
+  - Hardware Verification
+  - Computer Architecture
+  - Embedded Systems
+  - VLSI
+  - EDA
+  - Semiconductor Design
+  - Hardware Modeling
+
+skills:
+  - RTL
+  - RTL Design
+  - RTL Verification
+  - Digital Verification
+  - ASIC
+  - FPGA
+  - SoC
+  - Design Verification
+  - DV Engineer
+  - Verification Engineer
+  - Hardware Engineer
+  - Digital IC
+  - VLSI
+  - Verilog
+  - SystemVerilog
+  - UVM
+  - Formal Verification
+  - Formal Methods
+  - SVA
+  - Assertions
+  - CDC
+  - RDC
+  - Lint
+  - Synthesis
+  - STA
+  - Computer Architecture
+  - Microarchitecture
+  - SystemC
+  - TLM
+  - C++
+  - Hardware Modeling
+  - Performance Modeling
+  - Virtual Platforms
+  - EDA
+  - Semiconductor
+  - Embedded C
+  - Python
+
+# synonym groups: canonical term <- variants seen in the wild
+synonyms:
+  - canonical: RTL Verification
+    terms: [RTL, "RTL Design", "RTL Verification", "register transfer level"]
+  - canonical: Digital Verification
+    terms: [Digital Verification, Design Verification, DV, "hardware verification", "chip verification"]
+  - canonical: ASIC Design
+    terms: [ASIC, "ASIC Design", "ASIC Verification", "Digital IC", "custom IC"]
+  - canonical: FPGA Design
+    terms: [FPGA, "FPGA Design", "FPGA Verification", "Vivado", "Quartus"]
+  - canonical: SoC Design
+    terms: [SoC, "SoC Design", "SoC Verification", "System on Chip", "System-on-Chip"]
+  - canonical: SystemVerilog
+    terms: [SystemVerilog, SV, "system verilog"]
+  - canonical: Verilog
+    terms: [Verilog, "verilog-2001"]
+  - canonical: UVM
+    terms: [UVM, "Universal Verification Methodology"]
+  - canonical: Formal Verification
+    terms: ["Formal Verification", "Formal Methods", SVA, Assertions, "property verification"]
+  - canonical: SystemC
+    terms: [SystemC, TLM, "Transaction-Level Modeling", "Transaction Level Modeling", "TLM modeling"]
+  - canonical: C++
+    terms: ["C++", cpp, "C plus plus", "hardware/software modeling"]
+  - canonical: Computer Architecture
+    terms: ["Computer Architecture", Microarchitecture, "processor design"]
+  - canonical: Embedded Systems
+    terms: ["Embedded Systems", "Embedded C", "real-time systems", RTOS]
+  - canonical: VLSI
+    terms: [VLSI, "physical design", "logic design"]
+  - canonical: EDA
+    terms: [EDA, "electronic design automation", "Design Compiler", "PrimeTime", "VCS", "Xcelium", Questa]
+  - canonical: Semiconductor
+    terms: [Semiconductor, "chip design", "IC design"]
+
+preferred_countries:
+  - Germany
+  - Netherlands
+  - Switzerland
+  - Canada
+  - United States
+  - United Kingdom
+  - Ireland
+  - Sweden
+  - Denmark
+  - Finland
+  - France
+  - Belgium
+  - Australia
+  - Singapore
